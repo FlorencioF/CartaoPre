@@ -19,26 +19,18 @@ public class SistemaCartao {
 		for (CartaoPre c: cartoes) {
 		
 			c.adicionarCredito(1000);
-			if (c.comprar(500)){
-				JOptionPane.showMessageDialog(null, String.format("Compra no valor de R$ %.2f aprovada", 500.0));
-				JOptionPane.showMessageDialog(null, c.toString());
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "Saldo insuficiente");
-			}
-			c.toString();
+			validarCompra(c, 500);
 		}
-		
-
 	}
 
-	public void validarCompra(CartaoPre cartao, double valor) {
+	public static void validarCompra(CartaoPre cartao, double valor) {
 		if (cartao.comprar(valor)){
 			JOptionPane.showMessageDialog(null, String.format("Compra no valor de R$ %.2f aprovada", valor));
 			JOptionPane.showMessageDialog(null, cartao.toString());
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Saldo insuficiente");
+			JOptionPane.showMessageDialog(null, cartao.toString());
 		}
 	}
 }
